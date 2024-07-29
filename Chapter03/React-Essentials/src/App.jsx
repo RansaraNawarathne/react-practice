@@ -4,7 +4,9 @@ import TapButton from './components/TapButton.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 
 function App() {
+  let tabContent = 'Please a click a button';
   function handleSelect(selectedButton) {
+    tabContent = selectedButton;
     console.log(selectedButton);
   }
 
@@ -34,7 +36,7 @@ function App() {
             <TapButton onSelect={() => { handleSelect('state') }}>State</TapButton>
           </menu>
         </section>
-        Dynamic Content
+        {tabContent}
       </main>
     </div>
   );
