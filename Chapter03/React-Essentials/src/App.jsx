@@ -2,12 +2,14 @@ import { CORE_CONCEPTS } from './data.js';
 import Header from './components/Header/Header.jsx';
 import TapButton from './components/TapButton.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
+import { useState } from 'react';
 
 function App() {
-  let tabContent = 'Please a click a button';
+  const [ selectedTopic, setSelectedTopic ] = useState('Please click a button');
+
   function handleSelect(selectedButton) {
-    tabContent = selectedButton;
-    console.log(selectedButton);
+    setSelectedTopic(selectedButton);
+    console.log(selectedTopic);
   }
 
   return (
@@ -36,7 +38,7 @@ function App() {
             <TapButton onSelect={() => { handleSelect('state') }}>State</TapButton>
           </menu>
         </section>
-        {tabContent}
+        {selectedTopic}
       </main>
     </div>
   );
