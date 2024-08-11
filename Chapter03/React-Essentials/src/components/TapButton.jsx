@@ -1,7 +1,7 @@
-export default function TapButton ({children, onSelect}) {
+export default function TapButton ({children, onSelect, isSelected}) {
     return (
         <li>
-            <button onClick={onSelect}>
+            <button className = {isSelected ? 'active' : undefined} onClick={onSelect}>
                 { children }
             </button>
         </li>
