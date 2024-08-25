@@ -28,10 +28,10 @@ export default function Examples () {
     return (
         <Section title="Examples" id="examples">
             <menu>
-                <TapButton isSelected={selectedTopic === 'components'} onSelect={() => { handleSelect('components') }}>Components</TapButton>
-                <TapButton isSelected={selectedTopic === 'jsx'} onSelect={() => { handleSelect('jsx') }}>JSX</TapButton>
-                <TapButton isSelected={selectedTopic === 'props'} onSelect={() => { handleSelect('props') }}>Props</TapButton>
-                <TapButton isSelected={selectedTopic === 'state'} onSelect={() => { handleSelect('state') }}>State</TapButton>
+                <TapButton isSelected={selectedTopic === 'components'} onClick={() => { handleSelect('components') }}>Components</TapButton>
+                <TapButton isSelected={selectedTopic === 'jsx'} onClick={() => { handleSelect('jsx') }}>JSX</TapButton>
+                <TapButton isSelected={selectedTopic === 'props'} onClick={() => { handleSelect('props') }}>Props</TapButton>
+                <TapButton isSelected={selectedTopic === 'state'} onClick={() => { handleSelect('state') }}>State</TapButton>
             </menu>
             {tabContent}             
         </Section>
