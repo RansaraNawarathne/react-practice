@@ -22,17 +22,17 @@ export default function InputSection() {
             <div className="input-group">
                 <p>
                     <label htmlFor="txtInitialInvestment">Initial Investment</label>
-                    <input type="text" name="txtInitialInvestment" required value={investmentData.initialInvestment} onChange={(event) => handleInvestmentDataChanges('initialInvestment', event.target.value)} />
+                    <input type="number" name="txtInitialInvestment" required value={investmentData.initialInvestment} onChange={(event) => handleInvestmentDataChanges('initialInvestment', event.target.value)} />
                 </p>
                 <p>
                     <label htmlFor="txtAnnualInvestment">Annual Investment</label>
-                    <input type="text" name="txtAnnualInvestment" required value={investmentData.annualInvestment} onChange={(event) => handleInvestmentDataChanges('annualInvestment', event.target.value)} />
+                    <input type="number" name="txtAnnualInvestment" required value={investmentData.annualInvestment} onChange={(event) => handleInvestmentDataChanges('annualInvestment', event.target.value)} />
                 </p>
             </div>
             <div className="input-group">
                 <p>
                     <label htmlFor="txtExpectedReturn">Expected Return</label>
-                    <input type="text" name="txtExpectedReturn" required value={investmentData.expectedReturn} onChange={(event) => handleInvestmentDataChanges('expectedReturn', event.target.value)} />
+                    <input type="number" name="txtExpectedReturn" required value={investmentData.expectedReturn} onChange={(event) => handleInvestmentDataChanges('expectedReturn', event.target.value)} />
                 </p>
                 <p>
                     <label htmlFor="txtDuration">Duration</label>
