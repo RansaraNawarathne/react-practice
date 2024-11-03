@@ -1,4 +1,5 @@
-export default function Result() {
+export default function Result({ investmentData }) {
+    console.log(investmentData);
     return (
         <>
             <table id="result">
