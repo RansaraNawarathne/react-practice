@@ -20,7 +20,7 @@ export default function ResultModal({ ref, remainingTime, targetTime, onReset })
             { !userLost && <h2>Your Score: {score}</h2> }
             <p>The target time was  <strong>{targetTime} seconds.</strong></p>
             <p>You stopped the timer with <strong>{formattedTimeRemaining} seconds left.</strong></p>
-            <form method="dialog" onSubmit={onReset}>
+            <form method="dialog" onClose={onReset}>
                 <button>Close</button>
             </form>
         </dialog>
