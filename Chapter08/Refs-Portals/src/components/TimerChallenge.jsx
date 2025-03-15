@@ -2,23 +2,28 @@ import { useRef, useState } from "react";
 import ResultModal from "./ResultModal";
 
 export default function TimerChallenge ({title, targeTime}) {
-    const [timerStarted, setTimerStarted] = useState(false); 
-    const [timerExpired, setTimerExpired] = useState(false);
-
     let timer = useRef();
     let dialog = useRef();
 
-    function handleStart () {
-        timer.current = setTimeout(() => {
-            setTimerExpired(true);
-            dialog.current.open();
-        }, targeTime * 1000);
+    const [timeRemaining, setTimeRemaining] = useState(targeTime * 1000);
 
-        setTimerStarted(true);
+    const timerIsActive = timeRemaining > 0 && timeRemaining < targeTime * 1000;
+
+    if (timeRemaining <= 0) {
+        clearInterval(timer.current);
+        setTimeRemaining(targeTime * 1000);
+        dialog.current.open();
+    }
+
+    function handleStart () {
+        timer.current = setInterval(() => {
+            setTimeRemaining(prevTimeRemaining => prevTimeRemaining - 10);
+        }, 10);
     }
 
     function handleStop () {
-        clearTimeout(timer.current);
+        clearInterval(timer.current);
+        dialog.current.open();
     }
 
     return (
@@ -30,12 +35,12 @@ export default function TimerChallenge ({title, targeTime}) {
                     {targeTime} second{targeTime > 1 ? 's' : ''}
                 </p>
                 <p>
-                    <button onClick={timerStarted ? handleStop : handleStart}>
-                        {timerStarted ? 'Stop' : 'Start'} Challenge
+                    <button onClick={timerIsActive ? handleStop : handleStart}>
+                        {timerIsActive ? 'Stop' : 'Start'} Challenge
                     </button>
                 </p>
-                <p className={timerStarted ? 'active' : undefined}>
-                    {timerStarted ? 'Timer is running...' : 'Timer inactive'}
+                <p className={timerIsActive ? 'active' : undefined}>
+                    {timerIsActive ? 'Timer is running...' : 'Timer inactive'}
                 </p>
             </section>
         </>
